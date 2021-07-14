@@ -43,10 +43,10 @@ Microsoft.EntityFrameworkCore.Tools.DotNet
 
 ## Scaffold-DbContext Command
 Use Scaffold-DbContext to create a model based on your existing database. The following parameters can be specified with Scaffold-DbContext in Package Manager Console:
-
+`
 Scaffold-DbContext [-Connection] [-Provider] [-OutputDir] [-Context] [-Schemas>] [-Tables>] 
-                    [-DataAnnotations] [-Force] [-Project] [-StartupProject] [<CommonParameters>]
-PM> Scaffold-DbContext "Server=.\SQLExpress;Database=SchoolDB;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
+                    [-DataAnnotations] [-Force] [-Project] [-StartupProject] [<CommonParameters>]`
+`PM> Scaffold-DbContext "Server=.\SQLExpress;Database=SchoolDB;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models`
 EF Core creates entity classes only for tables and not for StoredProcedures or Views.
 
-DotNetCli : dotnet ef dbcontext scaffold "Server=.\SQLEXPRESS;Database=SchoolDB;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -o Models
+DotNetCli : `dotnet ef dbcontext scaffold "Server=.\SQLEXPRESS;Database=SchoolDB;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -o Models`
