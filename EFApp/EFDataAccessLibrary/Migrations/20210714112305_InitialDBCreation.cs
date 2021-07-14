@@ -4,6 +4,7 @@ namespace EFDataAccessLibrary.Migrations
 {
     public partial class InitialDBCreation : Migration
     {
+        // Up Migration - Make changes and go forward
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
@@ -74,6 +75,7 @@ namespace EFDataAccessLibrary.Migrations
                 column: "PersonId");
         }
 
+        // Down Migration - to rollback what we did
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(

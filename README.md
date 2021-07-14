@@ -17,6 +17,18 @@ EF Core mainly targets the code-first approach and provides little support for t
 In the code-first approach, EF Core API creates the database and tables using migration based on the conventions and configuration provided in your domain classes. 
 This approach is useful in Domain Driven Design (DDD).
 
+- Create classes
+- Call it in UI
+- Now run following commands in package manager console
+  `Add-migration <name>`
+  If we make changes to the models, we have to run it again
+  `Add-migration <newname>`
+  To Update this to the database
+  `Update-Database`
+  
+
+
+
 ### Database-First Approach
 In the database-first approach, EF Core API creates the domain and context classes based on your existing database using EF Core commands. 
 This has limited support in EF Core as it does not support visual designer or wizard
