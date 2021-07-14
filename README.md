@@ -28,7 +28,6 @@ This approach is useful in Domain Driven Design (DDD).
   
 
 
-
 ### Database-First Approach
 In the database-first approach, EF Core API creates the domain and context classes based on your existing database using EF Core commands. 
 This has limited support in EF Core as it does not support visual designer or wizard

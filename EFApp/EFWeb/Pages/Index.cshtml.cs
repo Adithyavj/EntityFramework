@@ -1,9 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using EFDataAccessLibrary.DataAccess;
+using EFDataAccessLibrary.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace EFWeb.Pages
@@ -11,15 +14,35 @@ namespace EFWeb.Pages
     public class IndexModel : PageModel
     {
         private readonly ILogger<IndexModel> _logger;
+        private readonly PeopleContext _db;
 
-        public IndexModel(ILogger<IndexModel> logger)
+        // Calling DB using object of PeopleContext
+        public IndexModel(ILogger<IndexModel> logger, PeopleContext db)
         {
             _logger = logger;
+            _db = db;
         }
 
         public void OnGet()
         {
+            LoadSampleData();
+        }
 
+        // Import some sample data
+        private void LoadSampleData()
+        {
+            // https://www.json-generator.com/ - Generate Random JSON Data
+            // If people table's count is 0
+            if (_db.people.Count() == 0)
+            {
+                // Read all values from .json file to a string variable
+                string file = System.IO.File.ReadAllText("generated.json");
+                // Deserialize the Json file to Person Model and take it into a var
+                var people = JsonSerializer.Deserialize<List<Person>>(file);
+                // Insert Query
+                _db.AddRange(people);
+                _db.SaveChanges();
+            }
         }
     }
 }
