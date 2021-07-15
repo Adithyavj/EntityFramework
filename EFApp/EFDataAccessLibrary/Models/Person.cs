@@ -16,7 +16,7 @@ namespace EFDataAccessLibrary.Models
         public string LastName { get; set; }
         [Required]
         public int Age { get; set; }
-        public List<Address> Address { get; set; } = new List<Address>();
+        public List<Address> Addresses { get; set; } = new List<Address>();
         public List<Email> EmailAddress { get; set; } = new List<Email>();
     }
 }

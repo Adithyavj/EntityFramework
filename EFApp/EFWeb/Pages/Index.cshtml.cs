@@ -2,6 +2,7 @@
 using EFDataAccessLibrary.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -26,6 +27,19 @@ namespace EFWeb.Pages
         public void OnGet()
         {
             LoadSampleData();
+
+            // query data from 3 tables
+            var people = _db.people
+                .Include(a => a.Addresses)
+                .Include(e => e.EmailAddress)
+                //.Where(x => ApprovedAge(x.Age)) // won't work in case of EF
+                .Where(x => x.Age >= 18 && x.Age <= 65) // will work
+                .ToList();
+        }
+
+        private bool ApprovedAge(int age)
+        {
+            return (age >= 18 && age <= 65);
         }
 
         // Import some sample data
