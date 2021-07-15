@@ -61,3 +61,13 @@ Scaffold-DbContext [-Connection] [-Provider] [-OutputDir] [-Context] [-Schemas>]
 EF Core creates entity classes only for tables and not for StoredProcedures or Views.
 
 DotNetCli : `dotnet ef dbcontext scaffold "Server=.\SQLEXPRESS;Database=SchoolDB;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -o Models`
+
+## Benifits of Entity Framework Core
+1. Faster development speed
+
+
+
+
+
+
+
